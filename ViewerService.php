@@ -46,10 +46,13 @@ class ViewerService {
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$id]);
         $row = $stmt->fetch();
-        return new Viewer(
-            $row["ViewerId"], $row["Name"], $row["Sex"], $row["MailId"],
-            $row["Age"], $row["City"], $row["StateAb"]
-        );
+        if ($row) {
+            return new Viewer(
+                $row["ViewerId"], $row["Name"], $row["Sex"], $row["MailId"],
+                $row["Age"], $row["City"], $row["StateAb"]
+            );
+        }
+        return null;
     }
 
     // UPDATE
@@ -72,6 +75,7 @@ class ViewerService {
         $sql = "DELETE FROM VIEWER WHERE ViewerId=?";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([$id]);
+        return $stmt->rowCount();
     }
 }
 ?>

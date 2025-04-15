@@ -35,23 +35,82 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <html>
 <head>
     <title>Edit Viewer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .form-row {
+            margin-bottom: 15px;
+        }
+        label {
+            display: inline-block;
+            width: 150px;
+            vertical-align: middle;
+        }
+        input[type="text"], 
+        input[type="email"], 
+        input[type="number"],
+        select {
+            width: 200px;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            margin-right: 10px;
+            padding: 8px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        a {
+            text-decoration: none;
+            color: #666;
+            padding: 8px 15px;
+        }
+    </style>
 </head>
 <body>
     <h2>Edit Viewer Info</h2>
     <form method="POST" action="updateViewer.php?id=<?= $viewer->getViewerId(); ?>">
-        Name: <input type="text" name="name" value="<?= $viewer->getName(); ?>" required><br><br>
-        Sex: 
-        <select name="sex">
-            <option value="M" <?= $viewer->getSex() === "M" ? "selected" : ""; ?>>Male</option>
-            <option value="F" <?= $viewer->getSex() === "F" ? "selected" : ""; ?>>Female</option>
-        </select><br><br>
-        Email: <input type="email" name="mailId" value="<?= $viewer->getMailId(); ?>" required><br><br>
-        Age: <input type="number" name="age" value="<?= $viewer->getAge(); ?>" required><br><br>
-        City: <input type="text" name="city" value="<?= $viewer->getCity(); ?>" required><br><br>
-        State Abbreviation: <input type="text" name="stateAb" value="<?= $viewer->getStateAb(); ?>" maxlength="2" required><br><br>
+        <div class="form-row">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" value="<?= $viewer->getName(); ?>" required>
+        </div>
         
-        <input type="submit" value="Update Viewer">
-        <a href="index.php">Cancel</a>
+        <div class="form-row">
+            <label for="sex">Sex:</label>
+            <select id="sex" name="sex">
+                <option value="M" <?= $viewer->getSex() === "M" ? "selected" : ""; ?>>Male</option>
+                <option value="F" <?= $viewer->getSex() === "F" ? "selected" : ""; ?>>Female</option>
+            </select>
+        </div>
+        
+        <div class="form-row">
+            <label for="mailId">Email:</label>
+            <input type="email" id="mailId" name="mailId" value="<?= $viewer->getMailId(); ?>" required>
+        </div>
+        
+        <div class="form-row">
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" value="<?= $viewer->getAge(); ?>" required>
+        </div>
+        
+        <div class="form-row">
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" value="<?= $viewer->getCity(); ?>" required>
+        </div>
+        
+        <div class="form-row">
+            <label for="stateAb">State Abbreviation:</label>
+            <input type="text" id="stateAb" name="stateAb" value="<?= $viewer->getStateAb(); ?>" maxlength="2" required>
+        </div>
+        
+        <div class="form-row">
+            <input type="submit" value="Update Viewer">
+            <a href="index.php">Cancel</a>
+        </div>
     </form>
 </body>
 </html>

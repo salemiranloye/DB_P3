@@ -6,7 +6,7 @@ class ViewerService {
     private $pdo;
 
     public function __construct() {
-        $this->pdo = (new Database())->getConnection();
+        $this->pdo = (new Database())->getDatabaseConnection();
     }
 
     // CREATE

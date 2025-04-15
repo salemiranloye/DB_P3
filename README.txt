@@ -1,3 +1,6 @@
+<!-- Jordan Smith-Acquah 1002098372 -->
+<!-- Salem Iranloye 1002156031 -->
+
 1. drop key constraint on ViewerId      
     ALTER TABLE feedback DROP FOREIGN KEY feedback_ibfk_1;
 2. add auto increment

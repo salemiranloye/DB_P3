@@ -1,3 +1,6 @@
+<!-- Jordan Smith-Acquah 1002098372 -->
+<!-- Salem Iranloye 1002156031 -->
+ 
 <?php
 require_once "Database.php";
 require_once "Viewer.php";

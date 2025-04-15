@@ -4,7 +4,7 @@ class Database {
 
 	public function getDatabaseConnection(){
 
-		$dbHost = "localhost:3306";
+		$dbHost = "localhost:3307";
 		$dbName = "AMDB";
 		$dbUser = "root";
 		$dbPassword = "";

@@ -1,21 +1,19 @@
 <?php
-
 class Database {
+    public function getConnection() {
+        $dbHost = "localhost";
+        $dbName = "AMDB";
+        $dbUser = "root";
+        $dbPassword = "";
 
-	public function getDatabaseConnection(){
-
-		$dbHost = "localhost:3307";
-		$dbName = "AMDB";
-		$dbUser = "root";
-		$dbPassword = "";
-
-		try {
-			// PDO in PHP (PHP Data Objects)
-			$dbConnection = new PDO('mysql:host='.$dbHost.';dbname='.$dbName, $dbUser, $dbPassword);
-			$dbConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			return $dbConnection;
-		} catch (PDOException $e) {
-			echo $e->getMessage();
-		}
-	}
+        try {
+            $dbConnection = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPassword);
+            $dbConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            return $dbConnection;
+        } catch (PDOException $e) {
+            // Better error handling
+            die("Database Connection Error: " . $e->getMessage());
+        }
+    }
 }
+?>

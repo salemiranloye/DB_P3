@@ -375,7 +375,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <form method="POST">
             <div class="form-group">
                 <label>Name:</label>
-                <input type="text" name="name" required placeholder="Full name">
+                <input type="text" name="name" maxlength="15" required placeholder="Full name">
             </div>
             <div class="form-group">
                 <label>Sex:</label>
